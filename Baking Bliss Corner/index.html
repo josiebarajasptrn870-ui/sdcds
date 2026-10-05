@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Baking Bliss Corner · The Art of Home Baking</title>
+  <meta name="description" content="Baking Bliss Corner is a journal of home baking — trusted recipes, technique deep-dives, and the quiet joy of creating with flour, butter, and time.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz@14..32&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --cream: #fcf7f0;
+      --warm-white: #faf5ed;
+      --bisque: #f5e7d9;
+      --terracotta: #b45f4a;
+      --deep-ochre: #9e6b4b;
+      --charcoal: #2e2824;
+      --text-body: #3b322b;
+      --text-muted: #6b5f56;
+      --border-light: #e9ddd2;
+      --shadow-warm: 0 12px 30px -12px rgba(100, 70, 50, 0.12);
+      --shadow-card: 0 6px 18px rgba(90, 60, 40, 0.06);
+      --font-serif: 'Instrument Serif', 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius-sm: 6px;
+      --radius-md: 16px;
+      --radius-lg: 28px;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: var(--cream);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {
+      color: var(--terracotta);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: var(--deep-ochre);
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto;
+      border-radius: var(--radius-sm);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.8rem;
+    }
+    /* header + nav */
+    .site-header {
+      padding: 1.8rem 0 1rem;
+      border-bottom: 1px solid var(--border-light);
+      background: var(--warm-white);
+    }
+    .header-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+    }
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+    }
+    .brand-name {
+      font-family: var(--font-serif);
+      font-size: 2.1rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+      line-height: 1.1;
+    }
+    .brand-name span {
+      color: var(--terracotta);
+    }
+    .brand-tagline {
+      font-size: 0.85rem;
+      font-weight: 350;
+      color: var(--text-muted);
+      border-left: 1px solid var(--border-light);
+      padding-left: 0.9rem;
+      margin-left: 0.4rem;
+      letter-spacing: 0.02em;
+      display: none;
+    }
+    @media (min-width: 600px) {
+      .brand-tagline {
+        display: inline-block;
+      }
+    }
+    .nav-primary {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      flex-wrap: wrap;
+    }
+    .nav-primary a {
+      font-size: 0.9rem;
+      font-weight: 450;
+      color: var(--charcoal);
+      letter-spacing: 0.02em;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 0.25rem;
+    }
+    .nav-primary a:hover {
+      border-bottom-color: var(--terracotta);
+      color: var(--terracotta);
+    }
+    .search-btn {
+      background: var(--bisque);
+      border: none;
+      border-radius: 40px;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.85rem;
+      font-family: var(--font-sans);
+      color: var(--charcoal);
+      cursor: pointer;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .search-btn:hover {
+      background: var(--border-light);
+    }
+    /* hero – editorial block */
+    .hero-block {
+      padding: 3.2rem 0 2.8rem;
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (max-width: 780px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+      }
+    }
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--deep-ochre);
+      font-weight: 500;
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: 3.2rem;
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--charcoal);
+      letter-spacing: -0.02em;
+    }
+    .hero-title i {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+    }
+    .hero-cta {
+      margin-top: 0.5rem;
+    }
+    .btn-primary {
+      background: var(--terracotta);
+      color: white;
+      border: none;
+      padding: 0.85rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: 1rem;
+      display: inline-block;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 4px 10px rgba(180, 95, 74, 0.2);
+    }
+    .btn-primary:hover {
+      background: var(--deep-ochre);
+      color: white;
+      transform: scale(1.01);
+    }
+    .hero-image {
+      border-radius: var(--radius-md);
+      background: var(--bisque);
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      box-shadow: var(--shadow-warm);
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+    }
+    /* knowledge map (unique nav) */
+    .knowledge-map {
+      padding: 2.8rem 0 2.2rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .map-title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+    .map-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.2rem 1.8rem;
+    }
+    .map-item {
+      background: white;
+      padding: 0.9rem 1.2rem;
+      border-radius: 60px;
+      box-shadow: var(--shadow-card);
+      text-align: center;
+      font-weight: 450;
+      font-size: 0.95rem;
+      border: 1px solid var(--border-light);
+      transition: 0.15s;
+      color: var(--charcoal);
+    }
+    .map-item:hover {
+      background: var(--bisque);
+      border-color: var(--terracotta);
+    }
+    /* feature article – longform */
+    .feature-block {
+      padding: 3.2rem 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2.8rem;
+    }
+    @media (max-width: 720px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .feature-main {
+      background: white;
+      border-radius: var(--radius-md);
+      padding: 2.2rem 2.4rem;
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--border-light);
+    }
+    .feature-cat {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--deep-ochre);
+      font-weight: 600;
+    }
+    .feature-title {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 400;
+      line-height: 1.2;
+      margin: 0.5rem 0 0.8rem;
+    }
+    .feature-title a {
+      color: var(--charcoal);
+    }
+    .feature-title a:hover {
+      color: var(--terracotta);
+    }
+    .feature-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .feature-excerpt {
+      color: var(--text-body);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .feature-excerpt p + p {
+      margin-top: 0.8rem;
+    }
+    .infographic-block {
+      background: var(--bisque);
+      border-radius: var(--radius-md);
+      padding: 1.8rem 1.8rem 1.4rem;
+      border: 1px solid var(--border-light);
+    }
+    .infographic-title {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 0.8rem;
+    }
+    .infographic-box {
+      background: white;
+      border-radius: var(--radius-sm);
+      padding: 1.2rem;
+      box-shadow: var(--shadow-card);
+    }
+    .infographic-box ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .infographic-box li {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.95rem;
+      border-bottom: 1px dashed var(--border-light);
+      padding-bottom: 0.6rem;
+    }
+    .infographic-box li:last-child {
+      border-bottom: 0;
+    }
+    .infographic-box .emoji-big {
+      font-size: 1.6rem;
+      background: var(--warm-white);
+      padding: 0.2rem 0.6rem;
+      border-radius: 40px;
+    }
+    /* article grid – handcrafted cards */
+    .article-archive {
+      padding: 3rem 0 2rem;
+    }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .section-head h2 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+    .section-head a {
+      font-size: 0.9rem;
+      font-weight: 450;
+      border-bottom: 2px solid transparent;
+    }
+    .section-head a:hover {
+      border-bottom-color: var(--terracotta);
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .card-item {
+      background: white;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--border-light);
+      transition: 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-warm);
+    }
+    .card-img {
+      aspect-ratio: 16/10;
+      background: var(--bisque);
+      overflow: hidden;
+    }
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 1.4rem 1.4rem 1.8rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-cat {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--deep-ochre);
+      font-weight: 600;
+    }
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      line-height: 1.25;
+      margin: 0.3rem 0 0.2rem;
+    }
+    .card-title a {
+      color: var(--charcoal);
+    }
+    .card-title a:hover {
+      color: var(--terracotta);
+    }
+    .card-excerpt {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 0.5rem 0 0.8rem;
+      flex: 1;
+    }
+    .card-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 0.8rem;
+      border-top: 1px solid var(--border-light);
+      padding-top: 0.8rem;
+      margin-top: 0.2rem;
+    }
+    /* split layout – journal style */
+    .journal-shelf {
+      padding: 3rem 0 2.5rem;
+      border-top: 1px solid var(--border-light);
+    }
+    .shelf-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.4rem;
+    }
+    @media (max-width: 680px) {
+      .shelf-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .shelf-item {
+      background: white;
+      border-radius: var(--radius-sm);
+      padding: 1.8rem 2rem 2rem;
+      border-left: 6px solid var(--terracotta);
+      box-shadow: var(--shadow-card);
+    }
+    .shelf-item h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+    .shelf-item p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .shelf-item .read-link {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-weight: 500;
+      border-bottom: 2px solid var(--border-light);
+    }
+    /* footer */
+    .site-footer {
+      background: var(--charcoal);
+      color: #e5dbd2;
+      padding: 3rem 0 2rem;
+      margin-top: 2rem;
+      border-top: 4px solid var(--terracotta);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2.4rem;
+    }
+    @media (max-width: 740px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 460px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .footer-brand .brand-name {
+      color: #f5e7d9;
+      font-size: 1.8rem;
+    }
+    .footer-brand p {
+      font-size: 0.9rem;
+      max-width: 20rem;
+      color: #cbbcb0;
+      margin-top: 0.4rem;
+    }
+    .footer-col h4 {
+      color: #f0e3d8;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 0.4rem;
+    }
+    .footer-col a {
+      color: #cbbcb0;
+      font-size: 0.9rem;
+      border-bottom: 1px solid transparent;
+    }
+    .footer-col a:hover {
+      color: white;
+      border-bottom-color: var(--terracotta);
+    }
+    .footer-bottom {
+      border-top: 1px solid #4d3e35;
+      margin-top: 2.2rem;
+      padding-top: 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      color: #b09f92;
+    }
+    /* additional pages (hidden but linked) */
+    .page-placeholder {
+      display: none;
+    }
+    /* responsiveness + helpers */
+    @media (max-width: 540px) {
+      .container {
+        padding: 0 1.2rem;
+      }
+      .hero-title {
+        font-size: 2.3rem;
+      }
+      .feature-main {
+        padding: 1.4rem;
+      }
+      .feature-title {
+        font-size: 1.8rem;
+      }
+      .header-grid {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.6rem;
+      }
+      .nav-primary {
+        justify-content: space-between;
+        gap: 0.6rem;
+      }
+      .nav-primary a {
+        font-size: 0.8rem;
+      }
+    }
+    /* breadcrumb style */
+    .breadcrumb {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      padding: 1rem 0 0.2rem;
+    }
+    .breadcrumb span {
+      color: var(--charcoal);
+    }
+    /* text utilities */
+    .text-center {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- header -->
+  <header class="site-header">
+    <div class="container header-grid">
+      <div class="brand">
+        <span class="brand-name">Baking <span>Bliss</span> Corner</span>
+        <span class="brand-tagline">flour · butter · time</span>
+      </div>
+      <nav class="nav-primary" aria-label="Primary navigation">
+       <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="terms.html">Terms Of Privacy</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+					<li><a href="cookies.html">Cookies Policy</a></li> 
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+      </nav>
+    </div>
+  </header>
+
+  <!-- hero -->
+  <section class="hero-block">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <div class="hero-eyebrow">The craft of home baking</div>
+        <h1 class="hero-title">Recipes that <i>feel</i> like <br>warmth itself.</h1>
+        <p class="hero-desc">A journal of slow baking, trusted techniques, and the quiet pleasure of creating something beautiful from flour, butter, and time.</p>
+        <div class="hero-cta"><a href="#" class="btn-primary">Explore the journal</a></div>
+      </div>
+      <div class="hero-image">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23f5e7d9'/%3E%3Ccircle cx='280' cy='180' r='80' fill='%23b45f4a' opacity='0.3'/%3E%3Ccircle cx='380' cy='240' r='60' fill='%239e6b4b' opacity='0.25'/%3E%3Cpath d='M120 280 L480 280 L440 340 L160 340 Z' fill='%23b45f4a' opacity='0.1'/%3E%3Ctext x='200' y='210' font-family='Instrument Serif,serif' font-size='28' fill='%232e2824' opacity='0.5'%3Ebaking%3C/text%3E%3C/svg%3E"
+             alt="A warm, textured illustration of a rustic loaf and scattered flour" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- knowledge map (unique navigation) -->
+  <div class="knowledge-map">
+    <div class="container">
+      <div class="map-title">↳ explore by subject</div>
+      <div class="map-grid">
+        <a href="#" class="map-item">🧈 Sourdough</a>
+        <a href="#" class="map-item">🥐 Viennoiserie</a>
+        <a href="#" class="map-item">🍞 Rustic loaves</a>
+        <a href="#" class="map-item">🥧 Pies &amp; tarts</a>
+        <a href="#" class="map-item">🍪 Cookies &amp; bars</a>
+        <a href="#" class="map-item">🎂 Layer cakes</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- feature + infographic (longform & visual) -->
+  <section class="feature-block">
+    <div class="container feature-grid">
+      <article class="feature-main">
+        <span class="feature-cat">technique</span>
+        <h2 class="feature-title"><a href="#">The art of the overnight sourdough</a></h2>
+        <div class="feature-meta">
+          <span>by Eleanor Hart</span>
+          <span>·</span>
+          <span>6 min read</span>
+          <span>·</span>
+          <span>updated 12 Apr 2026</span>
+        </div>
+        <div class="feature-excerpt">
+          <p>There is a quiet alchemy in sourdough: water, flour, salt, and time. But the overnight bulk fermentation is where depth of flavour is born. This guide walks through the subtle signs — the slight doming, the web of gluten, the gentle give of the dough — that tell you when to shape and when to chill.</p>
+          <p>With a simple schedule that fits into any day, you’ll learn to read your starter, adjust for temperature, and bake a loaf that crackles with character.</p>
+        </div>
+      </article>
+
+      <aside class="infographic-block">
+        <div class="infographic-title">📊 baker’s ratio &amp; timeline</div>
+        <div class="infographic-box">
+          <ul>
+            <li><span class="emoji-big">🌾</span> 100% flour (strong white)</li>
+            <li><span class="emoji-big">💧</span> 72% water (filtered, room temp)</li>
+            <li><span class="emoji-big">🧂</span> 2% fine sea salt</li>
+            <li><span class="emoji-big">⏳</span> 20% active starter (peak)</li>
+            <li><span class="emoji-big">🌙</span> overnight cold proof (12–16h)</li>
+          </ul>
+          <div style="margin-top:0.8rem; background:var(--warm-white); padding:0.6rem; border-radius:40px; text-align:center; font-size:0.8rem; color:var(--deep-ochre);">
+            ⏱️ total time: ~18h · active work: ~45min
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- article archive – handcrafted cards -->
+  <section class="article-archive">
+    <div class="container">
+      <div class="section-head">
+        <h2>Recent articles</h2>
+        <a href="#">view all →</a>
+      </div>
+      <div class="card-grid">
+        <div class="card-item">
+          <div class="card-img"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='240' viewBox='0 0 400 240'%3E%3Crect width='400' height='240' fill='%23f5e7d9'/%3E%3Ccircle cx='180' cy='120' r='40' fill='%23b45f4a' opacity='0.25'/%3E%3Ccircle cx='260' cy='160' r='30' fill='%239e6b4b' opacity='0.2'/%3E%3Ctext x='130' y='140' font-family='Instrument Serif,serif' font-size='22' fill='%232e2824' opacity='0.4'%3Ecroissant%3C/text%3E%3C/svg%3E" alt="a flaky croissant illustration" loading="lazy"></div>
+          <div class="card-content">
+            <span class="card-cat">viennoiserie</span>
+            <h3 class="card-title"><a href="#">Laminating at home: butter blocks &amp; folds</a></h3>
+            <p class="card-excerpt">Master the art of layering butter and dough to create croissants that shatter and melt.</p>
+            <div class="card-meta"><span>Eleanor Hart</span><span>·</span><span>8 min</span></div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="card-img"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='240' viewBox='0 0 400 240'%3E%3Crect width='400' height='240' fill='%23f5e7d9'/%3E%3Ccircle cx='200' cy='120' r='50' fill='%239e6b4b' opacity='0.2'/%3E%3Ctext x='150' y='140' font-family='Instrument Serif,serif' font-size='22' fill='%232e2824' opacity='0.35'%3Epies%3C/text%3E%3C/svg%3E" alt="rustic pie illustration" loading="lazy"></div>
+          <div class="card-content">
+            <span class="card-cat">pastry</span>
+            <h3 class="card-title"><a href="#">All-butter pie dough: the flaky secret</a></h3>
+            <p class="card-excerpt">Cold butter, ice water, and a light hand — the keys to a crust that is both tender and crisp.</p>
+            <div class="card-meta"><span>James Miller</span><span>·</span><span>5 min</span></div>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="card-img"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='240' viewBox='0 0 400 240'%3E%3Crect width='400' height='240' fill='%23f5e7d9'/%3E%3Ccircle cx='200' cy='120' r='45' fill='%23b45f4a' opacity='0.2'/%3E%3Ctext x='140' y='140' font-family='Instrument Serif,serif' font-size='22' fill='%232e2824' opacity='0.3'%3Ecake%3C/text%3E%3C/svg%3E" alt="layer cake illustration" loading="lazy"></div>
+          <div class="card-content">
+            <span class="card-cat">cake</span>
+            <h3 class="card-title"><a href="#">The reverse-creaming method for velvety crumbs</a></h3>
+            <p class="card-excerpt">This simple switch yields a cake that is exceptionally tender, with a fine, even crumb.</p>
+            <div class="card-meta"><span>Sophie Chen</span><span>·</span><span>6 min</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- journal shelf (unique split) -->
+  <section class="journal-shelf">
+    <div class="container">
+      <div class="section-head"><h2>From the notebook</h2><a href="#">more notes →</a></div>
+      <div class="shelf-grid">
+        <div class="shelf-item">
+          <h3>Why we bake by weight</h3>
+          <p>Scales transform baking from guesswork to certainty. A cup of flour can vary by 30%, but 120g is always 120g.</p>
+          <a href="#" class="read-link">read the note</a>
+        </div>
+        <div class="shelf-item">
+          <h3>Understanding hydration</h3>
+          <p>From stiff doughs to slack batters, hydration influences texture, oven spring, and keeping quality.</p>
+          <a href="#" class="read-link">read the note</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-name">Baking <span>Bliss</span> Corner</span>
+          <p>A quiet journal for home bakers who cherish craft over speed. Recipes, techniques, and the stories behind them.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#">Recipes</a></li>
+            <li><a href="#">Techniques</a></li>
+            <li><a href="#">Ingredients</a></li>
+            <li><a href="#">Baking science</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Authors</a></li>
+            <li><a href="#">Editorial policy</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Terms &amp; conditions</a></li>
+            <li><a href="#">Cookie policy</a></li>
+            <li><a href="#">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Baking Bliss Corner · crafted with care</span>
+        <span><a href="#">sitemap</a> · <a href="#">resources</a> · <a href="#">faq</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- hidden pages links for crawlability -->
+  <div style="display:none;">
+    <a href="/blog">Blog</a>
+    <a href="/categories">Categories</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/terms">Terms & Conditions</a>
+    <a href="/cookies">Cookie Policy</a>
+    <a href="/disclaimer">Disclaimer</a>
+    <a href="/editorial-policy">Editorial Policy</a>
+    <a href="/authors">Authors</a>
+    <a href="/archive">Archive</a>
+    <a href="/resources">Resources</a>
+    <a href="/faq">FAQ</a>
+    <a href="/sitemap">Sitemap</a>
+  </div>
+</body>
+</html>
