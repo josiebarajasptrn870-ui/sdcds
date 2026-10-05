@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Disclaimer · Baking Bliss Corner</title>
+  <meta name="description" content="Disclaimer for Baking Bliss Corner — transparency about our content, recipes, and affiliate links.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz@14..32&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --cream: #fcf7f0;
+      --warm-white: #faf5ed;
+      --bisque: #f5e7d9;
+      --terracotta: #b45f4a;
+      --deep-ochre: #9e6b4b;
+      --charcoal: #2e2824;
+      --text-body: #3b322b;
+      --text-muted: #6b5f56;
+      --border-light: #e9ddd2;
+      --shadow-warm: 0 12px 30px -12px rgba(100, 70, 50, 0.12);
+      --shadow-card: 0 6px 18px rgba(90, 60, 40, 0.06);
+      --font-serif: 'Instrument Serif', 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius-sm: 6px;
+      --radius-md: 16px;
+      --radius-lg: 28px;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: var(--cream);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {
+      color: var(--terracotta);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: var(--deep-ochre);
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto;
+      border-radius: var(--radius-sm);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.8rem;
+    }
+    /* header + nav */
+    .site-header {
+      padding: 1.8rem 0 1rem;
+      border-bottom: 1px solid var(--border-light);
+      background: var(--warm-white);
+    }
+    .header-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+    }
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+    }
+    .brand-name {
+      font-family: var(--font-serif);
+      font-size: 2.1rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+      line-height: 1.1;
+    }
+    .brand-name span {
+      color: var(--terracotta);
+    }
+    .brand-tagline {
+      font-size: 0.85rem;
+      font-weight: 350;
+      color: var(--text-muted);
+      border-left: 1px solid var(--border-light);
+      padding-left: 0.9rem;
+      margin-left: 0.4rem;
+      letter-spacing: 0.02em;
+      display: none;
+    }
+    @media (min-width: 600px) {
+      .brand-tagline {
+        display: inline-block;
+      }
+    }
+    .nav-primary {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      flex-wrap: wrap;
+    }
+    .nav-primary a {
+      font-size: 0.9rem;
+      font-weight: 450;
+      color: var(--charcoal);
+      letter-spacing: 0.02em;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 0.25rem;
+    }
+    .nav-primary a:hover {
+      border-bottom-color: var(--terracotta);
+      color: var(--terracotta);
+    }
+    /* page header */
+    .page-header {
+      padding: 2.8rem 0 1.8rem;
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .page-header h1 {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+    }
+    .page-header .subhead {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-top: 0.3rem;
+    }
+    .breadcrumb {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      padding: 0.8rem 0 0.2rem;
+    }
+    .breadcrumb span {
+      color: var(--charcoal);
+    }
+    /* privacy content (reused for disclaimer) */
+    .privacy-section {
+      padding: 3.2rem 0 4rem;
+    }
+    .privacy-card {
+      background: white;
+      border-radius: var(--radius-md);
+      padding: 2.8rem 3rem;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-card);
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .privacy-card h2 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 400;
+      margin-top: 2rem;
+      margin-bottom: 0.6rem;
+      color: var(--charcoal);
+    }
+    .privacy-card h2:first-of-type {
+      margin-top: 0;
+    }
+    .privacy-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-top: 1.6rem;
+      margin-bottom: 0.4rem;
+      color: var(--charcoal);
+    }
+    .privacy-card p {
+      margin-bottom: 1rem;
+      color: var(--text-body);
+    }
+    .privacy-card ul, .privacy-card ol {
+      margin: 0.6rem 0 1.2rem 1.6rem;
+      color: var(--text-body);
+    }
+    .privacy-card li {
+      margin-bottom: 0.3rem;
+    }
+    .privacy-card .highlight {
+      background: var(--bisque);
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+      font-weight: 450;
+    }
+    .privacy-card .muted {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .privacy-card hr {
+      border: none;
+      border-top: 1px solid var(--border-light);
+      margin: 2rem 0;
+    }
+    .privacy-card .last-updated {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: var(--warm-white);
+      padding: 0.8rem 1.2rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: 1.6rem;
+      border-left: 4px solid var(--terracotta);
+    }
+    @media (max-width: 600px) {
+      .privacy-card {
+        padding: 1.8rem 1.2rem;
+      }
+      .privacy-card h2 {
+        font-size: 1.6rem;
+      }
+      .privacy-card h3 {
+        font-size: 1.2rem;
+      }
+    }
+    /* footer */
+    .site-footer {
+      background: var(--charcoal);
+      color: #e5dbd2;
+      padding: 3rem 0 2rem;
+      margin-top: 2rem;
+      border-top: 4px solid var(--terracotta);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2.4rem;
+    }
+    @media (max-width: 740px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 460px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .footer-brand .brand-name {
+      color: #f5e7d9;
+      font-size: 1.8rem;
+    }
+    .footer-brand p {
+      font-size: 0.9rem;
+      max-width: 20rem;
+      color: #cbbcb0;
+      margin-top: 0.4rem;
+    }
+    .footer-col h4 {
+      color: #f0e3d8;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 0.4rem;
+    }
+    .footer-col a {
+      color: #cbbcb0;
+      font-size: 0.9rem;
+      border-bottom: 1px solid transparent;
+    }
+    .footer-col a:hover {
+      color: white;
+      border-bottom-color: var(--terracotta);
+    }
+    .footer-bottom {
+      border-top: 1px solid #4d3e35;
+      margin-top: 2.2rem;
+      padding-top: 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      color: #b09f92;
+    }
+    @media (max-width: 540px) {
+      .container {
+        padding: 0 1.2rem;
+      }
+      .page-header h1 {
+        font-size: 2.2rem;
+      }
+      .header-grid {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.6rem;
+      }
+      .nav-primary {
+        justify-content: space-between;
+        gap: 0.6rem;
+      }
+      .nav-primary a {
+        font-size: 0.8rem;
+      }
+    }
+    .text-center {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- header -->
+  <header class="site-header">
+    <div class="container header-grid">
+      <div class="brand">
+        <span class="brand-name">Baking <span>Bliss</span> Corner</span>
+        <span class="brand-tagline">flour · butter · time</span>
+      </div>
+      <nav class="nav-primary" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="categories.html">Categories</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- page header -->
+  <section class="page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / <span>Disclaimer</span></div>
+      <h1>Disclaimer</h1>
+      <div class="subhead">Honest words, warm loaves, and a few legal notes — because we care about clarity as much as crumb.</div>
+    </div>
+  </section>
+
+  <!-- disclaimer content (privacy-card reused for consistency) -->
+  <section class="privacy-section">
+    <div class="container">
+      <div class="privacy-card">
+        <div class="last-updated">
+          <strong>📅 Last updated:</strong> April 2026 · <span class="muted">(we review this page with the same care we give to our levain)</span>
+        </div>
+
+        <h2>General information</h2>
+        <p>Baking Bliss Corner is a personal baking journal and recipe resource. All content published on this website is for informational and educational purposes only. While we strive to ensure accuracy, we cannot guarantee that every recipe, technique, or piece of advice will work perfectly in your kitchen — ovens vary, flours absorb differently, and baking is as much an art as a science.</p>
+
+        <hr>
+
+        <h3>Recipe accuracy &amp; outcomes</h3>
+        <p>We test our recipes multiple times, but your results may differ due to factors such as ingredient brands, altitude, humidity, and equipment. We encourage you to use your best judgment and adjust accordingly. We are not responsible for any baking failures, kitchen mishaps, or burnt edges — though we do empathize (we’ve been there).</p>
+
+        <h3>Affiliate disclosure</h3>
+        <p>Some links on this site are affiliate links, meaning we may earn a small commission if you make a purchase through those links, at no extra cost to you. We only recommend products we genuinely use and love. Our editorial content is never influenced by affiliate partnerships.</p>
+        <ul>
+          <li>We are a participant in the Amazon Services LLC Associates Program.</li>
+          <li>We also partner with a few independent baking suppliers we trust.</li>
+        </ul>
+
+        <hr>
+
+        <h3>Professional advice</h3>
+        <p>The content on Baking Bliss Corner is not a substitute for professional advice. If you have dietary restrictions, allergies, or specific health concerns, please consult a qualified professional. We share our personal experience, not medical or nutritional prescriptions.</p>
+
+        <h3>External links</h3>
+        <p>We sometimes link to external websites for reference, inspiration, or products. We are not responsible for the content, accuracy, or privacy practices of those sites. Always verify information independently.</p>
+
+        <hr>
+
+        <h3>Copyright &amp; use</h3>
+        <p>All original text, photos, and recipes on this site are © Baking Bliss Corner. You may share our content with attribution, but please do not reproduce it wholesale without permission. We love seeing our recipes spread — just give credit where it’s due.</p>
+
+        <h3>Limitation of liability</h3>
+        <p>To the fullest extent permitted by law, Baking Bliss Corner and its contributors are not liable for any damages arising from the use of this website or its content. Your use of the site is at your own risk.</p>
+
+        <div style="margin-top: 2.2rem; padding: 1.2rem 1.6rem; background: var(--warm-white); border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
+          <p style="margin-bottom: 0.2rem; font-weight: 450;">🍪 Have a question about this disclaimer?</p>
+          <p style="margin-bottom: 0;">We’re here to help — just <a href="contact.html">contact us</a> and we’ll clarify anything.</p>
+        </div>
+
+        <div style="margin-top: 1.6rem; font-size: 0.9rem; color: var(--text-muted);">
+          <p><em>This disclaimer is baked with integrity. No hidden ingredients — just honesty and a little flour dust.</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-name">Baking <span>Bliss</span> Corner</span>
+          <p>A quiet journal for home bakers who cherish craft over speed. Recipes, techniques, and the stories behind them.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#">Recipes</a></li>
+            <li><a href="#">Techniques</a></li>
+            <li><a href="#">Ingredients</a></li>
+            <li><a href="#">Baking science</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Authors</a></li>
+            <li><a href="#">Editorial policy</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy policy</a></li>
+            <li><a href="terms.html">Terms &amp; conditions</a></li>
+            <li><a href="#">Cookie policy</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Baking Bliss Corner · crafted with care</span>
+        <span><a href="#">sitemap</a> · <a href="#">resources</a> · <a href="#">faq</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- hidden page links (for crawlability) -->
+  <div style="display:none;">
+    <a href="/blog">Blog</a>
+    <a href="/categories">Categories</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/terms">Terms & Conditions</a>
+    <a href="/cookies">Cookie Policy</a>
+    <a href="/disclaimer">Disclaimer</a>
+    <a href="/editorial-policy">Editorial Policy</a>
+    <a href="/authors">Authors</a>
+    <a href="/archive">Archive</a>
+    <a href="/resources">Resources</a>
+    <a href="/faq">FAQ</a>
+    <a href="/sitemap">Sitemap</a>
+  </div>
+</body>
+</html>
