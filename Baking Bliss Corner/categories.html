@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Recipe Categories · Baking Bliss Corner</title>
+  <meta name="description" content="Browse all baking categories at Baking Bliss Corner — from sourdough to celebration cakes, find your next bake.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz@14..32&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --cream: #fcf7f0;
+      --warm-white: #faf5ed;
+      --bisque: #f5e7d9;
+      --terracotta: #b45f4a;
+      --deep-ochre: #9e6b4b;
+      --charcoal: #2e2824;
+      --text-body: #3b322b;
+      --text-muted: #6b5f56;
+      --border-light: #e9ddd2;
+      --shadow-warm: 0 12px 30px -12px rgba(100, 70, 50, 0.12);
+      --shadow-card: 0 6px 18px rgba(90, 60, 40, 0.06);
+      --font-serif: 'Instrument Serif', 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius-sm: 6px;
+      --radius-md: 16px;
+      --radius-lg: 28px;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: var(--cream);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {
+      color: var(--terracotta);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: var(--deep-ochre);
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto;
+      border-radius: var(--radius-sm);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.8rem;
+    }
+    /* header + nav */
+    .site-header {
+      padding: 1.8rem 0 1rem;
+      border-bottom: 1px solid var(--border-light);
+      background: var(--warm-white);
+    }
+    .header-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+    }
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+    }
+    .brand-name {
+      font-family: var(--font-serif);
+      font-size: 2.1rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+      line-height: 1.1;
+    }
+    .brand-name span {
+      color: var(--terracotta);
+    }
+    .brand-tagline {
+      font-size: 0.85rem;
+      font-weight: 350;
+      color: var(--text-muted);
+      border-left: 1px solid var(--border-light);
+      padding-left: 0.9rem;
+      margin-left: 0.4rem;
+      letter-spacing: 0.02em;
+      display: none;
+    }
+    @media (min-width: 600px) {
+      .brand-tagline {
+        display: inline-block;
+      }
+    }
+    .nav-primary {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      flex-wrap: wrap;
+    }
+    .nav-primary a {
+      font-size: 0.9rem;
+      font-weight: 450;
+      color: var(--charcoal);
+      letter-spacing: 0.02em;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 0.25rem;
+    }
+    .nav-primary a:hover {
+      border-bottom-color: var(--terracotta);
+      color: var(--terracotta);
+    }
+    .nav-primary li {
+      list-style: none;
+    }
+    .search-btn {
+      background: var(--bisque);
+      border: none;
+      border-radius: 40px;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.85rem;
+      font-family: var(--font-sans);
+      color: var(--charcoal);
+      cursor: pointer;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .search-btn:hover {
+      background: var(--border-light);
+    }
+    /* page title */
+    .page-title-block {
+      padding: 3rem 0 1.5rem;
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .page-title-block h1 {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--charcoal);
+      letter-spacing: -0.02em;
+    }
+    .page-title-block h1 i {
+      color: var(--terracotta);
+      font-style: italic;
+    }
+    .page-title-block .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+    .page-title-block .breadcrumb a {
+      color: var(--deep-ochre);
+    }
+    /* categories grid */
+    .categories-section {
+      padding: 2.8rem 0 4rem;
+    }
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .category-card {
+      background: white;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .category-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-warm);
+    }
+    .category-card .card-img {
+      height: 160px;
+      background: var(--bisque);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.2rem;
+      color: var(--deep-ochre);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .category-card .card-body {
+      padding: 1.4rem 1.6rem 1.8rem;
+    }
+    .category-card .card-body h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 0.3rem;
+    }
+    .category-card .card-body h3 a {
+      color: var(--charcoal);
+    }
+    .category-card .card-body h3 a:hover {
+      color: var(--terracotta);
+    }
+    .category-card .card-body p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+    .category-card .card-body .recipe-count {
+      font-size: 0.8rem;
+      color: var(--terracotta);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      border-top: 1px solid var(--border-light);
+      padding-top: 0.7rem;
+      display: inline-block;
+    }
+    /* footer */
+    .site-footer {
+      background: var(--charcoal);
+      color: #e5dbd2;
+      padding: 3rem 0 2rem;
+      margin-top: 0.5rem;
+      border-top: 4px solid var(--terracotta);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2.4rem;
+    }
+    @media (max-width: 740px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 460px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .footer-brand .brand-name {
+      color: #f5e7d9;
+      font-size: 1.8rem;
+    }
+    .footer-brand p {
+      font-size: 0.9rem;
+      max-width: 20rem;
+      color: #cbbcb0;
+      margin-top: 0.4rem;
+    }
+    .footer-col h4 {
+      color: #f0e3d8;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 0.4rem;
+    }
+    .footer-col a {
+      color: #cbbcb0;
+      font-size: 0.9rem;
+      border-bottom: 1px solid transparent;
+    }
+    .footer-col a:hover {
+      color: white;
+      border-bottom-color: var(--terracotta);
+    }
+    .footer-bottom {
+      border-top: 1px solid #4d3e35;
+      margin-top: 2.2rem;
+      padding-top: 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      color: #b09f92;
+    }
+    /* responsive */
+    @media (max-width: 540px) {
+      .container {
+        padding: 0 1.2rem;
+      }
+      .page-title-block h1 {
+        font-size: 2rem;
+      }
+      .header-grid {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.6rem;
+      }
+      .nav-primary {
+        justify-content: space-between;
+        gap: 0.6rem;
+      }
+      .nav-primary a {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- header -->
+  <header class="site-header">
+    <div class="container header-grid">
+      <div class="brand">
+        <a href="index.html" style="display:flex; align-items:baseline; gap:0.3rem; text-decoration:none;">
+          <span class="brand-name">Baking <span>Bliss</span> Corner</span>
+          <span class="brand-tagline">flour · butter · time</span>
+        </a>
+      </div>
+      <nav class="nav-primary" aria-label="Primary navigation">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="cookies.html">Cookies</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="categories.html" style="border-bottom-color: var(--terracotta);">Categories</a></li>
+      </nav>
+    </div>
+  </header>
+
+  <!-- page title -->
+  <section class="page-title-block">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / <a href="categories.html">Categories</a></div>
+      <h1>Recipe <i>Categories</i></h1>
+      <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 38rem; margin-top: 0.3rem;">Find your next bake by category — from everyday loaves to showstopper desserts.</p>
+    </div>
+  </section>
+
+  <!-- categories grid -->
+  <section class="categories-section">
+    <div class="container">
+      <div class="categories-grid">
+        <!-- card 1 -->
+        <div class="category-card">
+          <div class="card-img">🍞</div>
+          <div class="card-body">
+            <h3><a href="#">Sourdough &amp; Artisan</a></h3>
+            <p>Rustic loaves, tangy starters, and the art of slow fermentation.</p>
+            <span class="recipe-count">18 recipes</span>
+          </div>
+        </div>
+        <!-- card 2 -->
+        <div class="category-card">
+          <div class="card-img">🥐</div>
+          <div class="card-body">
+            <h3><a href="#">Viennoiserie</a></h3>
+            <p>Buttery croissants, pain au chocolat, and laminated pastries.</p>
+            <span class="recipe-count">12 recipes</span>
+          </div>
+        </div>
+        <!-- card 3 -->
+        <div class="category-card">
+          <div class="card-img">🍰</div>
+          <div class="card-body">
+            <h3><a href="#">Celebration Cakes</a></h3>
+            <p>Layer cakes, birthday bakes, and elegant tortes for any occasion.</p>
+            <span class="recipe-count">24 recipes</span>
+          </div>
+        </div>
+        <!-- card 4 -->
+        <div class="category-card">
+          <div class="card-img">🥧</div>
+          <div class="card-body">
+            <h3><a href="#">Pies &amp; Tarts</a></h3>
+            <p>Flaky crusts, fruit fillings, and custard tarts from classic to modern.</p>
+            <span class="recipe-count">15 recipes</span>
+          </div>
+        </div>
+        <!-- card 5 -->
+        <div class="category-card">
+          <div class="card-img">🍪</div>
+          <div class="card-body">
+            <h3><a href="#">Cookies &amp; Bars</a></h3>
+            <p>Chewy, crispy, and everything in between — from chocolate chip to brownies.</p>
+            <span class="recipe-count">22 recipes</span>
+          </div>
+        </div>
+        <!-- card 6 -->
+        <div class="category-card">
+          <div class="card-img">🧁</div>
+          <div class="card-body">
+            <h3><a href="#">Muffins &amp; Quick Breads</a></h3>
+            <p>Easy, everyday bakes that come together in a flash.</p>
+            <span class="recipe-count">16 recipes</span>
+          </div>
+        </div>
+        <!-- card 7 -->
+        <div class="category-card">
+          <div class="card-img">🥖</div>
+          <div class="card-body">
+            <h3><a href="#">Yeast Breads</a></h3>
+            <p>Classic loaves, dinner rolls, and enriched doughs for every meal.</p>
+            <span class="recipe-count">20 recipes</span>
+          </div>
+        </div>
+        <!-- card 8 -->
+        <div class="category-card">
+          <div class="card-img">🍫</div>
+          <div class="card-body">
+            <h3><a href="#">Chocolate &amp; Decadent</a></h3>
+            <p>Rich, indulgent bakes for the true chocolate lover.</p>
+            <span class="recipe-count">14 recipes</span>
+          </div>
+        </div>
+        <!-- card 9 -->
+        <div class="category-card">
+          <div class="card-img">🌾</div>
+          <div class="card-body">
+            <h3><a href="#">Whole Grain &amp; Health</a></h3>
+            <p>Nutritious bakes with whole grains, seeds, and natural sweeteners.</p>
+            <span class="recipe-count">11 recipes</span>
+          </div>
+        </div>
+        <!-- card 10 -->
+        <div class="category-card">
+          <div class="card-img">🥮</div>
+          <div class="card-body">
+            <h3><a href="#">Seasonal &amp; Holiday</a></h3>
+            <p>Festive bakes for Christmas, Easter, Thanksgiving and more.</p>
+            <span class="recipe-count">19 recipes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-name">Baking <span>Bliss</span> Corner</span>
+          <p>A quiet journal for home bakers who cherish craft over speed. Recipes, techniques, and the stories behind them.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#">Recipes</a></li>
+            <li><a href="#">Techniques</a></li>
+            <li><a href="#">Ingredients</a></li>
+            <li><a href="#">Baking science</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#">Authors</a></li>
+            <li><a href="#">Editorial policy</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy policy</a></li>
+            <li><a href="terms.html">Terms &amp; conditions</a></li>
+            <li><a href="cookies.html">Cookie policy</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Baking Bliss Corner · crafted with care</span>
+        <span><a href="#">sitemap</a> · <a href="#">resources</a> · <a href="#">faq</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- hidden pages for crawlability -->
+  <div style="display:none;">
+    <a href="/blog">Blog</a>
+    <a href="/categories">Categories</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/terms">Terms & Conditions</a>
+    <a href="/cookies">Cookie Policy</a>
+    <a href="/disclaimer">Disclaimer</a>
+    <a href="/editorial-policy">Editorial Policy</a>
+    <a href="/authors">Authors</a>
+    <a href="/archive">Archive</a>
+    <a href="/resources">Resources</a>
+    <a href="/faq">FAQ</a>
+    <a href="/sitemap">Sitemap</a>
+  </div>
+</body>
+</html>
